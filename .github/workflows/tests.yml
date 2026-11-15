@@ -1,0 +1,20 @@
+name: Tests
+
+# Lance les tests automatiquement à chaque envoi de code sur GitHub.
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Lancer les tests
+        run: python -m unittest discover -s tests -t .
