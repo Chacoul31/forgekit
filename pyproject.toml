@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forgekit"          # le nom qu'on tape dans « pip install ... » (voir PUBLIER.md, étape 0)
+dynamic = ["version"]      # la version est lue dans forgekit/__init__.py (un seul endroit à modifier)
+description = "Boîte à outils Python sans dépendance : retry, cache, rate limit, config, pipelines, parallélisme, événements, validation, texte, logs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["utils", "retry", "cache", "pipeline", "validation", "config"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+]
+dependencies = []
+
+# À DÉCOMMENTER après avoir créé ton dépôt GitHub (remplace TON-PSEUDO) :
+# [project.urls]
+# Homepage = "https://github.com/Chacoul31/forgekit"
+# Issues = "https://github.com/Chacoul31/forgekit/issues"
+
+[tool.setuptools]
+packages = ["forgekit"]
+
+[tool.setuptools.dynamic]
+version = { attr = "forgekit.__version__" }
